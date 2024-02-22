@@ -3,7 +3,7 @@
 
 [`arXiv`](https://arxiv.org/abs/2310.08446) | [`BibTeX`](#bibliography)
 
-This is an official PyTorch implementation of the paper **Towards Robust Multi-modal Reasoning via Model Selection (Preprint)**. In this work, we:
+This is an official PyTorch implementation of the paper **Towards Robust Multi-modal Reasoning via Model Selection (ICLR 2024 Poster)**. In this work, we:
 
 - formulate the model selection problem in multi-modal reasoning contexts as an initial endeavor.
 - introduce $M^3$, a model selection framework for multi-modal models with multi-step reasoning, jointly modeling the relationship between samples, selected models, and subtask dependencies.
@@ -33,7 +33,7 @@ The $M^3$ framework depends on the following main requirements:
 If you want to run MetaGL or MetaGL++, you can use [`metagl_enviroment.sh`](https://github.com/LINs-lab/M3/blob/main/code/metagl_enviroment.sh)
 
 
-### How to Run
+### How to Run (take *MS-GQA* for example)
 First, you need to download the corresponding data file from the [`Google Drive link`](https://drive.google.com/drive/folders/1aAi09tpi-skzuAxWHgGbnoqK1i7z91aM?usp=drive_link) provided and place it in the specified [`data folder`](https://github.com/LINs-lab/M3/blob/main/data). Then, you will need to run [`code/preprocess.py`](https://github.com/LINs-lab/M3/blob/main/code/preprocess.py) to preprocess the computation graph. After that, the commonly used command line for $M^3$ framework is as follows.
 
 For simple one-time running with default hyperparameters:
@@ -59,6 +59,11 @@ For multiple complex hyper-parameter tuning experiments in $M^3$, simply do:
 sh code/scripts/run_m3.sh
 ```
 Note, you can freely change the range of hyperparameter values according to your needs in [`run_m3.sh`](https://github.com/LINs-lab/M3/blob/main/code/scripts/run_m3.sh).
+
+### Benchmarks
+In addition to the MS-GQA benchmark mentioned in the original paper, we have introduced a new benchmark: MS-OKVQA. This new benchmark is based on the [OKVQA](https://okvqa.allenai.org/) dataset, which contains 5,000 samples and involves two AI subtask modules: LLM (answering questions based on LLM) and VQA (Visual Question Answering). The task execution logic for MS-OKVQA is relatively straightforward, typically involving the sequential execution of an LLM subtask followed by a VQA subtask. This contrasts with the MS-GQA, which features a diverse and complex task graph. As a result, we have not explored MS-OKVQA extensively.
+
+To facilitate future research in this area, we have made both MS-GQA and MS-OKVQA available in our codebase. However, we recommend using the more comprehensive and representative MS-GQA for those interested in following our work.
 
 ### Reproducibility
 We recently found that inherent randomness in certain PyG sub-libraries causes variability in experimental results (see [link](https://github.com/pyg-team/pytorch_geometric/issues/3175)). This variation does not impact the conclusions in our paper but results in minor fluctuations. If you have better solutions, feel free to reach out anytime 👏.
