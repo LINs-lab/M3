@@ -76,10 +76,11 @@ This repo also contains a separated [`codebase`](https://github.com/LINs-lab/M3/
 If you find this repository helpful for your project, please consider citing our work:
 
 ```
-@article{liu2023towards,
-  title={Towards Robust Multi-Modal Reasoning via Model Selection},
-  author={Liu, Xiangyan and Li, Rongxue and Ji, Wei and Lin, Tao},
-  journal={arXiv preprint arXiv:2310.08446},
-  year={2023}
+@inproceedings{liu2024textbftextitmtextbftextit,
+    title={Towards Robust Multi-Modal Reasoning via Model Selection},
+    author={Xiangyan Liu and Rongxue LI and Wei Ji and Tao Lin},
+    booktitle={The Twelfth International Conference on Learning Representations},
+    year={2024},
+    url={https://openreview.net/forum?id=KTf4DGAzus}
 }
 ```
